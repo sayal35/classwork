@@ -15,7 +15,32 @@ const Register = () => {
     
     const handleRegister=(e)=>{
         e.preventDefault()
-        console.log("fullname=",fullname,username,email,phonenumber,password,confirmpassword)
+        
+
+        if (!fullname || !username || !email || !phonenumber || !password || !confirmpassword) {
+            alert("Please fill in all the fields");
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address")
+            return
+        }
+        const phoneRegex = /^\d{10}$/; // Example: 10 digits
+        if (!phoneRegex.test(phonenumber)) {
+            alert("Please enter a valid phone number");
+            return;
+        }
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/
+        if (!passwordRegex.test(password)) {
+            alert("Password must be at least 8 characters long, contain at least one uppercase letter, one special character, and one number.")
+            return
+        }
+        if (password !== confirmpassword) {
+            alert("Passwords do not match");
+            return;
+        }
+        console.log(fullname,username,email,phonenumber,password,confirmpassword,gender)
     }
     
     // const [gender, setGender] = useState("")
@@ -28,17 +53,17 @@ const Register = () => {
             <div id="register-container">
                 <h1 id="title"><span id="re">Re</span>gistration</h1>
                 <div className="row-field">
-                <CustomFormField label="Full Name" placeholder="Enter your Full Name" type="text" cName="fullname" onChange={(e)=>setFullname(e.target.value)} value={fullname}/>
-                <CustomFormField label="User Name" placeholder="Enter your User Name" type="text" cName="username"onChange={(e)=>setUsername(e.target.value)} value={username} />
+                <CustomFormField label="Full Name" placeholder="Enter your Full Name" type="text" cName="fullname" onChange={(e)=>setFullname(e.target.value)} value={fullname} required/>
+                <CustomFormField label="User Name" placeholder="Enter your User Name" type="text" cName="username"onChange={(e)=>setUsername(e.target.value)} value={username} required/>
 
                 </div>
                 <div className="row-field">
-                <CustomFormField label="Email" placeholder="Enter your email" type="email" cName="email" onChange={(e)=>setEmail(e.target.value)} value={email}/>
-                <CustomFormField label="Phone Number" placeholder="Enter your Phone Number" type="tel" cName="phonenumber" onChange={(e)=>setPhoneNumber(e.target.value)} value={phonenumber}/>
+                <CustomFormField label="Email" placeholder="Enter your email" type="email" cName="email" onChange={(e)=>setEmail(e.target.value)} value={email} required/>
+                <CustomFormField label="Phone Number" placeholder="Enter your Phone Number" type="tel" cName="phonenumber" onChange={(e)=>setPhoneNumber(e.target.value)} value={phonenumber} required/>
                 </div>
                 <div className="row-field">
-                <CustomFormField label="Passowrd" placeholder="Enter your Passowrd" type="password" cName="password" onChange={(e)=>setPassword(e.target.value)} value={password}/>
-                <CustomFormField label="Confirm Password" placeholder="Confirm your password" type="password" cName="confirmPassword" onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmpassword}/>
+                <CustomFormField label="Passowrd" placeholder="Enter your Passowrd" type="password" cName="password" onChange={(e)=>setPassword(e.target.value)} value={password} required/>
+                <CustomFormField label="Confirm Password" placeholder="Confirm your password" type="password" cName="confirmPassword" onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmpassword} required   />
                 </div>
                 <div className="gender-field">
                     <p>Gender</p>
@@ -60,76 +85,7 @@ const Register = () => {
                 <div id="reg-button">
                     <input id="login-button" type="submit" value={"Register"}/>
                 </div>
-                {/* <div className="register-group">
-                    <div>
-                    <label for="fullname"> Full Name</label>
-                    <input type="text" placeholder="Enter your name" name="fullname" required></input>
-                    </div>
-                    <div>
-                    <label for="username"> Username</label>
-                    <input type="text" placeholder="Enter your username" name="username" required></input>
-                    </div>
-                </div>
-                <div className="register-group">
-                    <div>
-                    <label for="email"> Email</label>
-                    <input type="email" placeholder="Enter your email" name="email" required></input>
-                    </div>
-                    <div>
-                    <label for="phonenumber">Phone Number</label>
-                    <input type="number" placeholder="Enter your number" name="phonenumber" required></input>
-                    </div>
-                </div>
-                <div className="register-group">
-                    <div>
-                    <label for="password"> Password</label>
-                    <input type="password" placeholder="Enter your password" name="password" required></input>
-                    </div>
-                    <div>
-                    <label for="password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm your password" name="password" required></input>
-                    </div>
-                </div>
-                <div>
-                    <h2>Select Your Gender</h2>
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                value="Male"
-                                checked={gender === 'Male'}
-                                onChange={handleGenderChange}
-                           />
-                            Male
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                value="Female"
-                                checked={gender === 'Female'}
-                                onChange={handleGenderChange}
-                            />
-                            Female
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input
-                                type="radio"
-                                value="Others"
-                                checked={gender === 'Others'}
-                                onChange={handleGenderChange}
-                            />
-                            Prefer not to say
-                        </label>
-                    </div>
-                    {gender && <p>Selected Gender: {gender}</p>}
-                </div>
-                <div>
-                    <button type="Register">Register</button>
-                </div> */}
+                
             </div>
         </form>
     );
