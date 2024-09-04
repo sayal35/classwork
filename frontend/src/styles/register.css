@@ -1,0 +1,67 @@
+#register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    justify-content: center;
+    width: 650px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.3);
+    /*xoffset, yoffset,blurradius,spreadradius */
+}
+
+#re {
+    border-bottom: 2px solid red;
+}
+
+
+#title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.row-field {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.row-field input {
+    width: 295px;
+}
+
+.gender-field p{
+    font-weight: bold;
+}
+
+#gender {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.g {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.g input {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+#reg-button{
+    display: flex;
+    justify-content: center;
+}
+
+#reg-button input{
+    background-color: chocolate;
+    color: white;
+    font-size: 20px;
+}   

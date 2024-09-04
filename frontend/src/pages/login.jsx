@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "../components/navbar";
 import "../styles/login.css"
+import { Link } from "react-router-dom";
+import CustomFormField from "../components/custom_form_field";
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -8,19 +10,18 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("submitted")
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
         if (!emailRegex.test(email)) {
-            alert("Please enter a valid email address");
-            return;
+            alert("Please enter a valid email address")
+            return
         }
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/
         if (!passwordRegex.test(password)) {
-            alert("Password must be at least 8 characters long, contain at least one uppercase letter, one special character, and one number.");
-            return;
+            alert("Password must be at least 8 characters long, contain at least one uppercase letter, one special character, and one number.")
+            return
         }
         console.log(email, password)
     }
-
     const handleOnEmailChange = (e) => {
         console.log("email", e.target.value)
         setEmail(e.target.value)
@@ -36,16 +37,11 @@ const Login = () => {
             <Navbar title={"Login"} />
             <div id="container">
                 <h2>Login</h2><br />
-                <div className="input-group">
-                    <label for="email"> Email</label>
-                    <input type="email" placeholder="Enter your email" name="email" onChange={handleOnEmailChange} value={email} required></input>
-                </div>
-                <div className="input-group">
-                    <label for="password"> Password</label>
-                    <input type="password" placeholder="Enter your password" name="password" onChange={handleOnPasswordChange} value={password} required></input>
-                </div>
+                <CustomFormField label="Email" type="email" placeholder="Enter your email" value={email} cName="email" onChange={handleOnEmailChange}/>
+                <CustomFormField label="Password"type="password" placeholder="Enter your password" name="password" onChange={handleOnPasswordChange} value={password} cName="password"/>
                 <div>
-                    <button type="submit">Login</button>
+                    <input id ='login-button' type="submit" value="login"/>
+                    <p style={{textAlign:'center',color:'teal', fontsize:'14px',marginTop:'15px'}}>Already have an account?<Link to='/register'>Signup</Link></p>
                 </div>
             </div>
         </form>
