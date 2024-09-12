@@ -11,6 +11,9 @@ import Profile from './pages/profile';
 import Downloads from './pages/downloads';
 import Login from './pages/login';
 import Register from './pages/register';
+import Users from './pages/user';
+import Comment from './pages/comment';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,7 +28,8 @@ root.render(
           <Route path='profile' element={<Profile/>}/>
           <Route path='login' element={<Login/>}/>
           <Route path='register' element={<Register/>}/>
-        
+          <Route path='user' element={<Users/>}/>
+          <Route path='comment' element={<Comment/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

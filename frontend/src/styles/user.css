@@ -1,0 +1,17 @@
+#users #title {
+    text-align: center;
+    color: teal;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px red;
+}
+
+
+#users #user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* 4 items per row */
+    gap: 20px;
+    /* Space between boxes */
+    padding: 20px;
+}

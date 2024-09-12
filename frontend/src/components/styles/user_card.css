@@ -1,0 +1,42 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.user-card {
+    width: 300px;
+    /* margin: 10px auto; */
+    align-items: center;
+    border-radius: 15px; 
+    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.3); 
+    /*xoffset, yoffset,blurradius,spreadradius */
+    overflow: hidden;
+}
+.user-title{
+    height: 110px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* border-radius: 15px 15px 0 0 ; */
+    justify-content: center;
+}
+.user-info {
+    padding: 10px;
+    text-align: left;
+  }
+.user-address{
+    padding: 10px;
+    text-align: left;
+  }
+  .user-address strong{
+    display: block;
+  }
+.user-company{
+    padding: 10px;
+    text-align: left;
+}
+.user-company strong{
+    display: block;
+}

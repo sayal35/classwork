@@ -1,0 +1,20 @@
+#comments #title {
+    text-align: center;
+    color: teal;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#comments #comment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+    gap: 20px; /* Space between boxes */
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #comments #comment-grid {
+        grid-template-columns: 1fr; /* 1 box per row for smaller screens */
+    }
+}

@@ -1,0 +1,36 @@
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Ensures equal spacing between the divs */
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ccc; /* Optional: adds a top border */
+    background-color:gray;
+    color: #0e0d0d;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content in each div */
+    text-align: center;
+}
+
+.footer-section img {
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.footer-section p {
+    margin: 8px 0; /* Adds a small vertical gap between each paragraph */
+    cursor: pointer;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.footer-section a{
+    margin: 8px 0 ;
+    color: #ccc;
+}
